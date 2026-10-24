@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}All complaints - CMS{% endblock %}
+{% block content %}
+<h1 class="h2">All complaints</h1>
+<p class="sub">Review each one and mark it resolved when it is fixed.</p>
+{% include "_stats.html" %}
+{% if complaints %}
+<div class="panel table-responsive"><table class="table ctable">
+  <thead><tr><th>ID</th><th>User</th><th>Title</th><th>Description</th><th>Sent on</th><th>Status</th><th></th></tr></thead>
+  <tbody>{% for c in complaints %}
+  <tr><td>#{{ c.id }}</td>
+    <td class="nowrap">{{ c.user_name }}<br><small class="text-muted">{{ c.user_email }}</small></td>
+    <td class="fw-semibold">{{ c.title }}</td><td>{{ c.description }}</td><td class="nowrap">{{ c.created_at[:16] }}</td>
+    <td><span class="pill {{ c.status|lower }}">{{ c.status }}</span></td>
+    <td>{% if c.status == "Pending" %}
+      <form method="POST" action="{{ url_for('resolve', complaint_id=c.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-primary btn-sm nowrap">Mark resolved</button></form>
+    {% endif %}</td></tr>
+  {% endfor %}</tbody></table></div>
+{% else %}
+<div class="panel empty"><p>No complaints have been submitted yet.</p></div>
+{% endif %}
+{% endblock %}

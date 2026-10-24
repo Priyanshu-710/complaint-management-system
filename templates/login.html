@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Log in - CMS{% endblock %}
+{% block nav %}{% endblock %}
+{% block body %}
+<div class="auth">
+  <aside class="auth-side"><a class="brand" href="{{ url_for('home') }}"><i></i>CMS</a>
+    <div><h1>Report it. Track it. Get it fixed.</h1><p>Send a complaint in under a minute and see its status change when the admin resolves it.</p></div></aside>
+  <main class="auth-main"><div class="auth-box">
+    {% include "_flash.html" %}
+    <h2>Log in</h2><p class="sub">Use the email you registered with.</p>
+    <form method="POST">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="form-label" for="email">Email</label>
+      <input id="email" type="email" name="email" class="form-control mb-3" autocomplete="email" required>
+      <label class="form-label" for="password">Password</label>
+      <input id="password" type="password" name="password" class="form-control mb-4" autocomplete="current-password" required>
+      <button class="btn btn-primary w-100">Log in</button>
+    </form>
+    <p class="alt">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+  </div></main>
+</div>
+{% endblock %}

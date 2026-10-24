@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - CMS{% endblock %}
+{% block content %}
+<h1 class="h2">Hi, {{ user }}</h1>
+<p class="sub">Here is where your complaints stand.</p>
+{% include "_stats.html" %}
+<div class="actions"><a href="{{ url_for('complaint') }}" class="btn btn-primary">New complaint</a><a href="{{ url_for('view_complaints') }}" class="btn btn-outline-secondary">View my complaints</a></div>
+{% endblock %}

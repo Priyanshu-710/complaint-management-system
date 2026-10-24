@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}New complaint - CMS{% endblock %}
+{% block content %}
+<h1 class="h2">New complaint</h1>
+<p class="sub">Be specific. The admin sees exactly what you write here.</p>
+<form method="POST" class="panel formbox">
+  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <label class="form-label" for="title">Title</label>
+  <input id="title" type="text" name="title" class="form-control mb-3" maxlength="100" placeholder="e.g. Projector not working in Lab 3" required>
+  <label class="form-label" for="description">What happened?</label>
+  <textarea id="description" name="description" class="form-control mb-4" rows="5" required></textarea>
+  <button class="btn btn-primary">Send complaint</button>
+</form>
+{% endblock %}
