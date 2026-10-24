@@ -6,9 +6,21 @@ A Flask + SQLite web app where users register, log in and submit complaints, and
 
 ## Screenshots
 
-| Login | Dashboard | Admin panel |
-|---|---|---|
-| ![Login](login.jpg) | ![Dashboard](dashboard.jpg) | ![Admin panel](admin.jpg) |
+**Login**
+
+<img src="login.jpg" alt="Login page" width="320">
+
+**User dashboard**
+
+<img src="dashboard.jpg" alt="User dashboard" width="560">
+
+**My complaints**
+
+<img src="complaints.jpg" alt="My complaints" width="560">
+
+**Admin panel**
+
+<img src="admin.jpg" alt="Admin panel" width="560">
 
 ## Features
 - Registration and login with hashed passwords (Werkzeug)
